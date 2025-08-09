@@ -32,13 +32,14 @@ class MainApp extends StatelessWidget {
             ),
           ],
         ),
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Container(width: 1000, height: 300, color: Colors.deepOrange[200]),
-            Container(width: 300, height: 300, color: Colors.deepOrange[300]),
-            Container(width: 300, height: 300, color: Colors.blue[100]),
-          ],
+        body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+          ),
+          itemCount: 12,
+          itemBuilder: (context, index) {
+            return Card(child: Center(child: Text('Item $index')));
+          },
         ),
       ),
     );
