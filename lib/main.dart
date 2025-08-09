@@ -5,7 +5,7 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  MainApp({super.key});
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +32,12 @@ class MainApp extends StatelessWidget {
             ),
           ],
         ),
-        body: Column(
+        body: ListView(
+          scrollDirection: Axis.horizontal,
           children: [
-            Expanded(child: Container(color: Colors.deepOrange[200])),
-            Expanded(child: Container(color: Colors.deepOrange[300])),
-            Expanded(child: Container(color: Colors.blue[100])),
+            Container(width: 1000, height: 300, color: Colors.deepOrange[200]),
+            Container(width: 300, height: 300, color: Colors.deepOrange[300]),
+            Container(width: 300, height: 300, color: Colors.blue[100]),
           ],
         ),
       ),
