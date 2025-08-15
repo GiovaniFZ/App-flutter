@@ -34,14 +34,14 @@ class Login extends StatelessWidget {
                 ),
                 CustomInput(label: 'NAME'),
                 CustomInput(label: 'PASSWORD'),
-                CustomButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/second');
-                  },
-                  text: 'Log in',
-                ),
+                CustomButton(onPressed: () {}, text: 'Log in'),
                 ButtonText(text: 'Forgot Password?', onPressed: () {}),
-                ButtonText(text: 'Sign Up!', onPressed: () {}),
+                ButtonText(
+                  text: 'Sign Up!',
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                ),
               ],
             ),
           ),

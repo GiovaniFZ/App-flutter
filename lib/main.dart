@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/login.dart';
-import 'package:flutter_app/pages/second.dart';
+import 'package:flutter_app/pages/register.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
       home: Login(),
       routes: {
         '/login': (context) => Login(),
-        '/second': (context) => Second(),
+        '/register': (context) => Register(),
       },
     );
   }
