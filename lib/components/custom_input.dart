@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomInput extends StatelessWidget {
+class CustomInput extends StatefulWidget {
   final String label;
   final Color color;
   final Color textColor;
@@ -17,22 +17,42 @@ class CustomInput extends StatelessWidget {
   });
 
   @override
+  _CustomInputState createState() => _CustomInputState();
+}
+
+class _CustomInputState extends State<CustomInput> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Align(alignment: Alignment.centerLeft, child: Text(label)),
+        Align(alignment: Alignment.centerLeft, child: Text(widget.label)),
         TextField(
-          keyboardType: type,
-          obscureText: obscureText,
+          controller: _controller,
+          keyboardType: widget.type,
+          obscureText: widget.obscureText,
           decoration: InputDecoration(
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
             filled: true,
-            fillColor: color,
-            labelStyle: TextStyle(color: textColor),
+            fillColor: widget.color,
+            labelStyle: TextStyle(color: widget.textColor),
           ),
           onTap: () async {
-            final isDate = type == TextInputType.datetime;
+            final isDate = widget.type == TextInputType.datetime;
             if (!isDate) return;
             DateTime? picked = await showDatePicker(
               context: context,
@@ -40,6 +60,9 @@ class CustomInput extends StatelessWidget {
               firstDate: DateTime(1900),
               lastDate: DateTime(2100),
             );
+            if (picked != null) {
+              _controller.text = "${picked.day}/${picked.month}/${picked.year}";
+            }
           },
         ),
       ],
