@@ -34,7 +34,12 @@ class Login extends StatelessWidget {
                 ),
                 CustomInput(label: 'NAME'),
                 CustomInput(label: 'PASSWORD', obscureText: true),
-                CustomButton(onPressed: () {}, text: 'Log in'),
+                CustomButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/dashboard');
+                  },
+                  text: 'Log in',
+                ),
                 ButtonText(text: 'Forgot Password?', onPressed: () {}),
                 ButtonText(
                   text: 'Sign Up!',

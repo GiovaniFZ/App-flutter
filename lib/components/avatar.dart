@@ -1,20 +1,53 @@
 import 'package:flutter/material.dart';
 
 class Avatar extends StatelessWidget {
-  const Avatar({super.key});
+  final String text;
+  const Avatar({super.key, this.text = ''});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xFF03378F),
       height: 200,
-      child: Center(
-        child: CircleAvatar(
-          radius: 50,
-          backgroundImage: NetworkImage(
-            'https://avatars.githubusercontent.com/u/90426410?v=4',
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 50,
+            backgroundImage: NetworkImage(
+              'https://avatars.githubusercontent.com/u/90426410?v=4',
+            ),
           ),
-        ),
+          if (text.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome again,',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      text,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ],
       ),
     );
   }

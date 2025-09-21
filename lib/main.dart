@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/login.dart';
 import 'package:flutter_app/pages/register.dart';
+import 'package:flutter_app/pages/dashboard.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MainApp extends StatelessWidget {
       routes: {
         '/login': (context) => Login(),
         '/register': (context) => Register(),
+        '/dashboard': (context) => Dashboard(),
       },
     );
   }
